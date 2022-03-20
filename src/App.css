@@ -1,1 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
 
+:root {
+  /* PRIMARY */
+  --br-b: hsl(220, 98%, 61%);
+  /* LIGHT THEME */
+  --v-lgray-l: hsl(0, 0%, 98%);
+  --v-lgblue-l: hsl(236, 33%, 92%);
+  --l-gblue-l: hsl(233, 11%, 84%);
+  --d-gblue-l: hsl(236, 9%, 61%);
+  --vd-gblue-l: hsl(235, 19%, 35%);
+  /* DARK THEME */
+  --vd-blue-d: hsl(235, 21%, 11%);
+  --vd-d-blue-d: hsl(235, 24%, 19%);
+  --l-gblue-d: hsl(234, 39%, 85%);
+  --l-gblue-hov-d: hsl(236, 33%, 92%);
+  --d-gblue-d: hsl(234, 11%, 52%);
+  --vd-gblue-d: hsl(233, 14%, 35%);
+  --vd-gblue-darker-d: hsl(237, 14%, 26%);
+
+  /*ANY ACTIVE SELECTOR */
+  --active: var(--br-b);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Josefin Sans";
+  min-height: 100vh;
+  background-color: var(--vd-blue-d);
+}
+
+.dark {
+  --main-backcolor: var(--vd-blue-d);
+  --todo-color: var(--vd-gblue-darker-d);
+  --text-color: var(--l-gblue-d);
+  --text-crossed-c: var(--vd-gblue-d);
+  --cont-text-c: var(--d-gblue-d);
+  --cont-text-hov: var(--l-gblue-hov-d);
+}
+
+.light {
+  --main-backcolor: var(--v-lgblue-l);
+  --todo-color: var(--v-lgray-l);
+  --text-color: var(--vd-gblue-l);
+  --text-crossed-c: var(--d-gblue-l);
+  --cont-text-c: var(--d-gblue-l);
+  --cont-text-hov: var(--vd-gblue-l);
+}
+
+button {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+.core {
+  width: 328px;
+  margin: 50px auto;
+}
+@media (min-width: 768px) {
+  .core {
+    width: 541px;
+    margin: 70px auto;
+  }
+}
+
+.core header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.core header .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.core header .top p {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+}
+@media (min-width: 768px) {
+  .core header .top p {
+    font-size: 30px;
+    color: white;
+    letter-spacing: 12px;
+  }
+}
+
+.core header .top img {
+  height: 26px;
+  width: 26px;
+  cursor: pointer;
+}
+
+.core header .bottom {
+  width: 100%;
+}
+
+.core header .bottom input {
+  padding: 15px;
+  padding-left: 50px;
+  width: 100px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.todos-list {
+  width: 100%;
+}
+.todo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}

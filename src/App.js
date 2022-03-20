@@ -1,8 +1,10 @@
 import "./App.css";
+import Core from "./components/Core";
 
 function App() {
   return (
     <main className="App">
+      <Core />
       <footer class="attribution">
         Challenge by{" "}
         <a
