@@ -2,10 +2,12 @@ import React from "react";
 import Options from "./Options";
 import Todo from "./Todo";
 
-const TodosList = () => {
+const TodosList = ({ onPass, onRPass }) => {
   return (
     <div className="todos-list">
-      <Todo />
+      {onPass.map((todo) => {
+        return <Todo passData={todo} />;
+      })}
       <Options /> {/* this should be a list item, if the list isn't empty*/}
     </div>
   );
