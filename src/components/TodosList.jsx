@@ -2,7 +2,7 @@ import React from "react";
 import Options from "./Options";
 import Todo from "./Todo";
 
-const TodosList = ({ onPass, onRPass }) => {
+const TodosList = ({ onPass }) => {
   return (
     <div className="todos-list">
       {onPass.map((todo) => {

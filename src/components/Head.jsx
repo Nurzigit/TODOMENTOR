@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import sun from "../images/icon-sun.svg";
 import moon from "../images/icon-moon.svg";
 
 const Head = ({ onMake }) => {
-  const [text, setText] = useState("");
+  const [todoText, setTodoText] = useState("");
+
   const onSubmit = (e) => {
     e.preventDefault();
-    onMake(text);
-    setText("");
+    onMake(todoText);
+    setTodoText("");
   };
-
   return (
     <header>
       <div className="top">
@@ -19,13 +19,14 @@ const Head = ({ onMake }) => {
         </span>
       </div>
       <div className="bottom">
-        <form action="" onSubmit={(e) => onSubmit(e)}>
+        <form action="" onSubmit={onSubmit}>
           <input
             type="text"
             aria-label="Enter a todo"
             placeholder="Create a new todo..."
+            value={todoText}
             onChange={(e) => {
-              setText(e.target.value);
+              setTodoText(e.target.value);
             }}
           />
         </form>
