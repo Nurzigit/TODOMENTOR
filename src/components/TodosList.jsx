@@ -2,13 +2,26 @@ import React from "react";
 import Options from "./Options";
 import Todo from "./Todo";
 
-const TodosList = ({ onPass }) => {
+const TodosList = ({
+  onPass,
+  onDelete,
+  onClear,
+  onAll,
+  onCompleted,
+  onActive,
+}) => {
   return (
     <div className="todos-list">
       {onPass.map((todo) => {
-        return <Todo passData={todo} />;
+        return <Todo passData={todo} key={todo.id} onDelete={onDelete} />;
       })}
-      <Options /> {/* this should be a list item, if the list isn't empty*/}
+      <Options
+        onClear={onClear}
+        onAll={onAll}
+        onCompleted={onCompleted}
+        onActive={onActive}
+      />{" "}
+      {/* this should be a list item, if the list isn't empty*/}
     </div>
   );
 };

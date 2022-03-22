@@ -2,7 +2,7 @@ import React from "react";
 import cross from "../images/icon-cross.svg";
 import check from "../images/icon-check.svg";
 
-const Todo = ({ passData }) => {
+const Todo = ({ passData, onDelete }) => {
   return (
     <div className="todo">
       <div className="left">
@@ -14,7 +14,13 @@ const Todo = ({ passData }) => {
         )}
       </div>
       <span>
-        <img src={cross} alt="delete" />
+        <img
+          src={cross}
+          alt="delete"
+          onClick={() => {
+            onDelete(passData.id);
+          }}
+        />
       </span>
     </div>
   );

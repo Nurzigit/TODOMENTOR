@@ -1,26 +1,62 @@
 import React from "react";
 
-const Options = () => {
+const Options = ({ onClear, onAll, onCompleted, onActive }) => {
   return (
     <>
       <div className="desktop-opt hide-in-mobile">
         <p>5 items left</p>
         <div className="categ">
-          <button>All</button>
-          <button>Active</button>
-          <button>Completed</button>
+          <button
+            onClick={() => {
+              onAll();
+            }}
+          >
+            All
+          </button>
+          <button onClick={() => onActive()}>Active</button>
+          <button
+            onClick={() => {
+              onCompleted();
+            }}
+          >
+            Completed
+          </button>
         </div>
-        <button>Clear Completed</button>
+        <button
+          onClick={() => {
+            onClear();
+          }}
+        >
+          Clear Completed
+        </button>
       </div>
       <div className="mobile-opt hide-in-desktop">
         <div className="attached">
           <p>5 items left</p>
-          <button>Clear Completed</button>
+          <button
+            onClick={() => {
+              onClear();
+            }}
+          >
+            Clear Completed
+          </button>
         </div>
         <div className="deattached">
-          <button>All</button>
-          <button>Active</button>
-          <button>Completed</button>
+          <button
+            onClick={() => {
+              onAll();
+            }}
+          >
+            All
+          </button>
+          <button onClick={() => onActive()}>Active</button>
+          <button
+            onClick={() => {
+              onCompleted();
+            }}
+          >
+            Completed
+          </button>
         </div>
       </div>
     </>
