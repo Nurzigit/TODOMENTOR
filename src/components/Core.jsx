@@ -41,6 +41,14 @@ const Core = () => {
     );
   };
 
+  const toggleDone = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
+
   const clearCompleted = () => {
     setTodos(
       todos.filter((todo) => {
@@ -59,6 +67,7 @@ const Core = () => {
         onAll={showAll}
         onCompleted={showCompleted}
         onActive={showActive}
+        onToggleDone={toggleDone}
       />
     </div>
   );

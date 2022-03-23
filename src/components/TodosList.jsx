@@ -9,11 +9,19 @@ const TodosList = ({
   onAll,
   onCompleted,
   onActive,
+  onToggleDone,
 }) => {
   return (
     <div className="todos-list">
       {onPass.map((todo) => {
-        return <Todo passData={todo} key={todo.id} onDelete={onDelete} />;
+        return (
+          <Todo
+            passData={todo}
+            key={todo.id}
+            onDelete={onDelete}
+            onToggleDone={onToggleDone}
+          />
+        );
       })}
       <Options
         onClear={onClear}

@@ -174,8 +174,21 @@ main {
   border-bottom: 1px solid var(--vd-gblue-d);
   position: relative;
 }
-.todo::before {
+/* .todo::before {
   content: "";
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  height: 20px;
+  width: 20px;
+  transform: translateY(-50%);
+  border: 1px solid var(--vd-gblue-d);
+  border-radius: 50%;
+  cursor: pointer;
+} */
+
+.todo .left > span {
+  display: inline-block;
   position: absolute;
   left: 20px;
   top: 50%;

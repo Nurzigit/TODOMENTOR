@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import sun from "../images/icon-sun.svg";
 import moon from "../images/icon-moon.svg";
 
 const Head = ({ onMake }) => {
   const [todoText, setTodoText] = useState("");
+  const [themeIcon, setThemeIcon] = useState(sun);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -15,7 +16,13 @@ const Head = ({ onMake }) => {
       <div className="top">
         <p>TODO</p>
         <span>
-          <img src={sun} alt="mode-type" />
+          <img
+            src={themeIcon}
+            alt="mode-type"
+            onClick={() => {
+              setThemeIcon(themeIcon === sun ? moon : sun);
+            }}
+          />
         </span>
       </div>
       <div className="bottom">
