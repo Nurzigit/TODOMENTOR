@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import sun from "../images/icon-sun.svg";
 import moon from "../images/icon-moon.svg";
 
-const Head = ({ onMake }) => {
+const Head = ({ onMake, onChangeTheme }) => {
   const [todoText, setTodoText] = useState("");
   const [themeIcon, setThemeIcon] = useState(sun);
 
@@ -20,7 +20,13 @@ const Head = ({ onMake }) => {
             src={themeIcon}
             alt="mode-type"
             onClick={() => {
-              setThemeIcon(themeIcon === sun ? moon : sun);
+              if (themeIcon === sun) {
+                setThemeIcon(moon);
+                onChangeTheme("dark");
+              } else {
+                setThemeIcon(sun);
+                onChangeTheme("light");
+              }
             }}
           />
         </span>

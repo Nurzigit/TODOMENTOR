@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Head from "./Head";
 import TodosList from "./TodosList";
 import data from "../data.json";
-const Core = () => {
+const Core = ({ onChangeTheme }) => {
   const [todos, setTodos] = useState(data);
   const makeTodo = (val) => {
     if (val.trim())
@@ -59,7 +59,7 @@ const Core = () => {
 
   return (
     <div className="core">
-      <Head onMake={makeTodo} />
+      <Head onMake={makeTodo} onChangeTheme={onChangeTheme} />
       <TodosList
         onPass={todos}
         onDelete={deleteTodo}

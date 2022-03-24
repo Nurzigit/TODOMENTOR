@@ -1,11 +1,20 @@
 import "./App.css";
 import Core from "./components/Core";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [theme, setTheme] = useState("light");
+  useEffect(() => {
+    document.body.classList.forEach((classs) => {
+      document.body.classList.remove(classs);
+    });
+
+    document.body.classList.toggle(theme);
+  }, [theme]);
   return (
-    <main>
+    <main className={`${theme}-mode`}>
       <div className="App">
-        <Core />
+        <Core onChangeTheme={setTheme} />
         <footer className="attribution">
           Challenge by{" "}
           <a
