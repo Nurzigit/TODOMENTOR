@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Head from "./Head";
 import TodosList from "./TodosList";
 import data from "../data.json";
+
 const Core = ({ onChangeTheme }) => {
   const [todos, setTodos] = useState(data);
   const [todosCount, setTodosCount] = useState(
@@ -22,6 +23,7 @@ const Core = ({ onChangeTheme }) => {
 
     console.log(todos);
   };
+
   const deleteTodo = (id) => {
     console.log(id);
     const newTodos = todos.filter((curr) => {
@@ -29,6 +31,7 @@ const Core = ({ onChangeTheme }) => {
     });
     setTodos(newTodos);
   };
+
   const showAll = () => {
     setTodos(data);
   };
