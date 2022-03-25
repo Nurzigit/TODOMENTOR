@@ -17,10 +17,15 @@
   --d-gblue-d: hsl(234, 11%, 52%);
   --vd-gblue-d: hsl(233, 14%, 35%);
   --vd-gblue-darker-d: hsl(237, 14%, 26%);
+  --shad-d: hsl(233, 22%, 7%);
 
   /* gradient colors */
   --grad-one: hsl(192, 100%, 67%);
   --grad-two: hsl(280, 87%, 65%);
+
+  /* MOBILE OPTIONS BACKC */
+  --light: #dbdce3;
+  --dark: #12131c;
 
   /*ANY ACTIVE SELECTOR */
   --active: var(--br-b);
@@ -40,6 +45,8 @@
   --text-crossed-c: var(--vd-gblue-d);
   --cont-text-c: var(--d-gblue-d);
   --cont-text-hov: var(--l-gblue-hov-d);
+  --shadow-color: var(--shad-d);
+  --mobile-opt-backc: var(--dark);
 }
 
 .light {
@@ -49,6 +56,8 @@
   --text-crossed-c: var(--d-gblue-l);
   --cont-text-c: var(--d-gblue-l);
   --cont-text-hov: var(--vd-gblue-l);
+  --shadow-color: var(--l-gblue-l);
+  --mobile-opt-backc: var(--light);
 }
 
 body {
@@ -56,6 +65,7 @@ body {
   font-family: "Josefin Sans";
   min-height: 100vh;
   background-color: var(--main-backcolor);
+  transition: 0.3s;
 }
 
 button {
@@ -79,6 +89,15 @@ main {
   width: 100%;
   background-image: url(./images/bg-desktop-light.jpg);
   background-repeat: no-repeat;
+  background-size: 100% 250px;
+  background-position: top center;
+  transition: 0.3s;
+}
+
+@media (min-width: 768px) {
+  main {
+    background-size: 100% 275px;
+  }
 }
 
 main.light-mode {
@@ -162,12 +181,15 @@ main.light-mode {
   color: var(--text-color);
   outline: none;
   caret-color: var(--br-b);
+  transition: 0.3s;
 }
 
 .todos-list {
   width: 100%;
   border-radius: 3px;
-  overflow: hidden; /*careful this might hide shit*/
+  overflow: hidden;
+  box-shadow: 0px 47px 31px 0px var(--shadow-color);
+  transition: 0.3s;
 }
 .todo {
   display: flex;
@@ -181,6 +203,7 @@ main.light-mode {
   padding-left: 60px;
   border-bottom: 1px solid var(--text-crossed-c);
   position: relative;
+  transition: 0.3s;
 }
 
 .todo .left > span {
@@ -228,6 +251,7 @@ main.light-mode {
 
 .desktop-opt {
   display: none;
+  transition: 0.3s;
 }
 @media (min-width: 768px) {
   .desktop-opt {
@@ -247,14 +271,11 @@ main.light-mode {
 }
 
 .desktop-opt button:hover {
-  color: white;
+  color: var(--text-color);
 }
 
 .desktop-opt .categ button {
   font-weight: bold;
-}
-.desktop-opt .categ button:hover {
-  color: var(--text-color);
 }
 
 .desktop-opt .categ button:not(:last-of-type) {
@@ -267,7 +288,8 @@ main.light-mode {
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: transparent;
+  background-color: var(--mobile-opt-backc);
+  transition: 0.3s;
 }
 
 @media (min-width: 768px) {
@@ -277,20 +299,20 @@ main.light-mode {
 }
 
 .mobile-opt button {
-  color: var(--vd-gblue-d);
   transition: 0.2s;
   font-size: 16px;
+  color: var(--text-crossed-c);
 }
 .mobile-opt button:hover {
-  color: white;
+  color: var(--text-color);
 }
 
 .mobile-opt .attached {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: var(--vd-gblue-d);
-  background-color: var(--vd-d-blue-d);
+  color: var(--text-crossed-c);
+  background-color: var(--todo-color);
   width: 100%;
   padding: 20px;
   border-bottom-left-radius: 3px;
@@ -300,7 +322,8 @@ main.light-mode {
 .mobile-opt .deattached {
   margin-top: 15px;
   padding: 15px;
-  background-color: var(--vd-d-blue-d);
+  color: var(--text-crossed-c);
+  background-color: var(--todo-color);
   width: 100%;
   text-align: center;
   border-radius: 3px;
