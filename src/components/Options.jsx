@@ -1,10 +1,10 @@
 import React from "react";
 
-const Options = ({ onClear, onAll, onCompleted, onActive }) => {
+const Options = ({ onClear, onAll, onCompleted, onActive, onChangeCount }) => {
   return (
     <>
       <div className="desktop-opt hide-in-mobile">
-        <p>5 items left</p>
+        <p>{`${onChangeCount} item(s) left`}</p>
         <div className="categ">
           <button
             onClick={() => {
@@ -32,7 +32,7 @@ const Options = ({ onClear, onAll, onCompleted, onActive }) => {
       </div>
       <div className="mobile-opt hide-in-desktop">
         <div className="attached">
-          <p>5 items left</p>
+          <p> {`${onChangeCount} item(s) left`} </p>
           <button
             onClick={() => {
               onClear();

@@ -18,6 +18,10 @@
   --vd-gblue-d: hsl(233, 14%, 35%);
   --vd-gblue-darker-d: hsl(237, 14%, 26%);
 
+  /* gradient colors */
+  --grad-one: hsl(192, 100%, 67%);
+  --grad-two: hsl(280, 87%, 65%);
+
   /*ANY ACTIVE SELECTOR */
   --active: var(--br-b);
 
@@ -29,16 +33,9 @@
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  font-family: "Josefin Sans";
-  min-height: 100vh;
-  background-color: var(--vd-blue-d);
-}
-
 .dark {
   --main-backcolor: var(--vd-blue-d);
-  --todo-color: var(--vd-gblue-darker-d);
+  --todo-color: var(--vd-d-blue-d);
   --text-color: var(--l-gblue-d);
   --text-crossed-c: var(--vd-gblue-d);
   --cont-text-c: var(--d-gblue-d);
@@ -52,6 +49,13 @@ body {
   --text-crossed-c: var(--d-gblue-l);
   --cont-text-c: var(--d-gblue-l);
   --cont-text-hov: var(--vd-gblue-l);
+}
+
+body {
+  margin: 0;
+  font-family: "Josefin Sans";
+  min-height: 100vh;
+  background-color: var(--main-backcolor);
 }
 
 button {
@@ -141,7 +145,7 @@ main.light-mode {
   height: 20px;
   width: 20px;
   transform: translateY(-50%);
-  border: 1px solid var(--vd-gblue-d);
+  border: 1px solid var(--text-crossed-c);
   border-radius: 50%;
 }
 
@@ -152,10 +156,10 @@ main.light-mode {
   width: 100%;
   font-family: inherit;
   font-size: var(--reg-fs);
-  background-color: var(--vd-d-blue-d);
+  background-color: var(--todo-color);
   border: none;
   border-radius: 3px;
-  color: white;
+  color: var(--text-color);
   outline: none;
   caret-color: var(--br-b);
 }
@@ -170,26 +174,14 @@ main.light-mode {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  color: white;
+  color: var(--text-color);
   font-size: var(--reg-fs);
-  background-color: var(--vd-d-blue-d);
+  background-color: var(--todo-color);
   padding: 20px;
   padding-left: 60px;
-  border-bottom: 1px solid var(--vd-gblue-d);
+  border-bottom: 1px solid var(--text-crossed-c);
   position: relative;
 }
-/* .todo::before {
-  content: "";
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  height: 20px;
-  width: 20px;
-  transform: translateY(-50%);
-  border: 1px solid var(--vd-gblue-d);
-  border-radius: 50%;
-  cursor: pointer;
-} */
 
 .todo .left > span {
   display: inline-block;
@@ -199,7 +191,7 @@ main.light-mode {
   height: 20px;
   width: 20px;
   transform: translateY(-50%);
-  border: 1px solid var(--vd-gblue-d);
+  border: 1px solid var(--text-crossed-c);
   border-radius: 50%;
   cursor: pointer;
 }
@@ -208,7 +200,21 @@ main.light-mode {
   line-height: 0;
 }
 
-.todo span img {
+.todo .left span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.todo .left span.completed {
+  background-image: linear-gradient(135deg, var(--grad-one), var(--grad-two));
+}
+
+.todo .left span img {
+  width: 11px;
+  height: 9px;
+}
+.todo > span img {
   height: 18px;
   width: 18px;
   cursor: pointer;
@@ -229,19 +235,26 @@ main.light-mode {
     align-items: center;
     justify-content: space-between;
     padding: 18px;
-    background-color: var(--vd-d-blue-d);
-    color: var(--vd-gblue-d);
+    background-color: var(--todo-color);
+    color: var(--text-crossed-c);
   }
 }
 
 .desktop-opt button {
-  color: var(--vd-gblue-d);
+  color: var(--text-crossed-c);
   font-size: 16px;
   transition: 0.2s;
 }
 
 .desktop-opt button:hover {
   color: white;
+}
+
+.desktop-opt .categ button {
+  font-weight: bold;
+}
+.desktop-opt .categ button:hover {
+  color: var(--text-color);
 }
 
 .desktop-opt .categ button:not(:last-of-type) {
@@ -298,4 +311,21 @@ main.light-mode {
 }
 .mobile-opt .deattached button:not(:last-of-type) {
   margin-right: 15px;
+}
+
+s {
+  color: var(--text-crossed-c);
+}
+
+footer {
+  text-align: center;
+  color: darkcyan;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+footer a {
+  color: royalblue;
+  font-size: 20px;
 }

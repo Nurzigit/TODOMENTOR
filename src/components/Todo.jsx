@@ -8,10 +8,14 @@ const Todo = ({ passData, onDelete, onToggleDone }) => {
     <div className="todo">
       <div className="left">
         <span
+          className={completed ? "completed" : ""}
           onClick={() => {
             onToggleDone(id);
           }}
-        ></span>
+        >
+          {" "}
+          {completed && <img src={check} alt="check mark"></img>}{" "}
+        </span>
         {completed ? <s> {text} </s> : <p> {text} </p>}
       </div>
       <span>

@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "./Head";
 import TodosList from "./TodosList";
 import data from "../data.json";
 const Core = ({ onChangeTheme }) => {
   const [todos, setTodos] = useState(data);
+  const [todosCount, setTodosCount] = useState(
+    todos.filter((todo) => !todo.completed && todo).length
+  );
+
+  useEffect(() => {
+    setTodosCount(todos.filter((todo) => !todo.completed && todo).length);
+  }, [todos]);
+
   const makeTodo = (val) => {
     if (val.trim())
       setTodos([
@@ -68,6 +76,7 @@ const Core = ({ onChangeTheme }) => {
         onCompleted={showCompleted}
         onActive={showActive}
         onToggleDone={toggleDone}
+        onChangeCount={todosCount}
       />
     </div>
   );

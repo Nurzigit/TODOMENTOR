@@ -10,6 +10,7 @@ const TodosList = ({
   onCompleted,
   onActive,
   onToggleDone,
+  onChangeCount,
 }) => {
   return (
     <div className="todos-list">
@@ -28,8 +29,8 @@ const TodosList = ({
         onAll={onAll}
         onCompleted={onCompleted}
         onActive={onActive}
-      />{" "}
-      {/* this should be a list item, if the list isn't empty*/}
+        onChangeCount={onChangeCount}
+      />
     </div>
   );
 };
