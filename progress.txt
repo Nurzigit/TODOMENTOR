@@ -1,2 +1,0 @@
-try making "Active" and "Completed" work all the time, use data variable maybe
-figure out the drag and drop thing
