@@ -20,12 +20,9 @@ const Core = ({ onChangeTheme }) => {
         { id: Math.floor(Math.random() * 10000), text: val, completed: false },
       ]);
     else alert("Please write something");
-
-    console.log(todos);
   };
 
   const deleteTodo = (id) => {
-    console.log(id);
     const newTodos = todos.filter((curr) => {
       return curr.id !== id;
     });

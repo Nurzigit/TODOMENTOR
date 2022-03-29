@@ -32,8 +32,6 @@ const TodosList = ({
           onActive={onActive}
           onChangeCount={onChangeCount}
         />
-        {/* if the list isn't empty show the DnD message.
-          Add the DnD feature from Mantine */}
       </div>
       {onPass.length > 1 && (
         <p className="order-message">Drag and drop to reorder list</p>
