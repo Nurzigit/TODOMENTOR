@@ -1,31 +1,32 @@
 import "./App.css";
-import Core from "./components/Core";
+import { Main } from "./components/Main";
 import { useEffect, useState } from "react";
+import data from "./data.json";
 
 function App() {
+  // саздаем состаяния для темы 
   const [theme, setTheme] = useState("light");
-  useEffect(() => {
-    document.body.classList.forEach((classs) => {
-      document.body.classList.remove(classs);
-    });
 
-    document.body.classList.toggle(theme);
-  }, [theme]);
+  // Перезаписывем все данные на другую переменую что б было лего работать
+  const MY_TASKS = 
+     JSON.parse(localStorage.getItem("myTasks"))
+     || [...data];
+  const [todos, setTodos] = useState(MY_TASKS);
+
+  // Колл бак функция для управления темами
+  const toggleTheme = () => {
+    setTheme(theme === 'light'? 'dark': 'light')
+  }
+// Саздаем useEffect для сохраениения всех данных в браузере
+  useEffect(() => {
+    document.body.className = theme;
+    localStorage.setItem("myTasks", JSON.stringify(todos));
+  }, [theme, todos]);
+
   return (
     <main className={`${theme}-mode`}>
       <div className="App">
-        <Core onChangeTheme={setTheme} />
-        <footer className="attribution">
-          Challenge by{" "}
-          <a
-            href="https://www.frontendmentor.io?ref=challenge"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Frontend Mentor
-          </a>
-          . Coded by <a href="#">Abdelghafour122</a>.
-        </footer>
+        <Main todos={todos} setTodos={setTodos} MY_TASKS={MY_TASKS} toggleTheme={toggleTheme} theme={theme}/>
       </div>
     </main>
   );

@@ -1,8 +1,8 @@
 import React from "react";
-import cross from "../images/icon-cross.svg";
-import check from "../images/icon-check.svg";
+import cross from "../../images/icon-cross.svg";
+import check from "../../images/icon-check.svg";
 
-const Todo = ({ passData, onDelete, onToggleDone }) => {
+export const Todo = ({ passData, onDelete, onToggleDone }) => {
   const { id, text, completed } = passData;
   return (
     <div className="todo">
@@ -31,4 +31,4 @@ const Todo = ({ passData, onDelete, onToggleDone }) => {
   );
 };
 
-export default Todo;
+

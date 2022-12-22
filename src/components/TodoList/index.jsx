@@ -1,8 +1,8 @@
 import React from "react";
-import Options from "./Options";
-import Todo from "./Todo";
+import { Buttons } from "../Buttons";
+import { Todo } from "../Done";
 
-const TodosList = ({
+export const TodosList = ({
   onPass,
   onDelete,
   onClear,
@@ -25,7 +25,7 @@ const TodosList = ({
             />
           );
         })}
-        <Options
+        <Buttons
           onClear={onClear}
           onAll={onAll}
           onCompleted={onCompleted}
@@ -39,5 +39,3 @@ const TodosList = ({
     </>
   );
 };
-
-export default TodosList;

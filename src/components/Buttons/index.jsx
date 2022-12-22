@@ -1,6 +1,6 @@
 import React from "react";
 
-const Options = ({ onClear, onAll, onCompleted, onActive, onChangeCount }) => {
+export const Buttons = ({ onClear, onAll, onCompleted, onActive, onChangeCount }) => {
   return (
     <>
       <div className="desktop-opt hide-in-mobile">
@@ -63,4 +63,4 @@ const Options = ({ onClear, onAll, onCompleted, onActive, onChangeCount }) => {
   );
 };
 
-export default Options;
+
